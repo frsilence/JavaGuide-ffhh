@@ -25,7 +25,8 @@ public class JdbcDemo {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from user");
         if(resultSet.next()){
-            resultSet.getString(0);
+            String name = resultSet.getString(1);
+            System.out.println(name);
         }
     }
 }
