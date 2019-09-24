@@ -9,7 +9,7 @@ package cn.ffhh.File;
  */
 public class TestDemo {
     public static void main(String[] args) {
-        FileDemo fileDemo = new FileDemo("C:\\Users\\yfzhao\\IdeaProjects\\demo3\\target");
+        FileDemo fileDemo = new FileDemo("C:\\Users\\FHS20160572\\Desktop\\filetest");
         fileDemo.showFilePath();
     }
 }
