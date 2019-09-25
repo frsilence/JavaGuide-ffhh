@@ -37,10 +37,14 @@ public class JdbcDemo {
         PreparedStatement preparedStatement = connection.prepareStatement("select * from user where id = ?");
         preparedStatement.setInt(1,1);
         ResultSet resultSet1 = preparedStatement.executeQuery();
-        while(resultSet1.next()){
-            System.out.println("name:"+resultSet1.getString(1));
-            System.out.println("id:"+resultSet1.getInt(2));
-            System.out.println("birthday:"+resultSet1.getTimestamp(3));
+        while(resultSet1.next()) {
+            System.out.println("name:" + resultSet1.getString(1));
+            System.out.println("id:" + resultSet1.getInt(2));
+            System.out.println("birthday:" + resultSet1.getTimestamp(3));
+            if (resultSet.next()) {
+                String name = resultSet.getString(1);
+                System.out.println(name);
+            }
         }
     }
 }
