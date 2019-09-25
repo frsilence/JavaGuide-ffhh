@@ -22,10 +22,25 @@ public class JdbcDemo {
         System.out.println(jdbcInfo.getProperty("jdbc.url"));
         Class.forName(jdbcInfo.getProperty("jdbc.driver"));
         Connection connection = DriverManager.getConnection(jdbcInfo.getProperty("jdbc.url"),jdbcInfo.getProperty("jdbc.username"),jdbcInfo.getProperty("jdbc.password"));
+        //Statement
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from user");
-        if(resultSet.next()){
-            resultSet.getString(0);
+        while(resultSet.next()){
+            System.out.println("name:"+resultSet.getString(1));
+            System.out.println("id:"+resultSet.getInt(2));
+            System.out.println("birthday:"+resultSet.getTimestamp(3));
+        }
+
+        System.out.println("prepareStatment--------------------");
+
+        //prepareStatement
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from user where id = ?");
+        preparedStatement.setInt(1,1);
+        ResultSet resultSet1 = preparedStatement.executeQuery();
+        while(resultSet1.next()){
+            System.out.println("name:"+resultSet1.getString(1));
+            System.out.println("id:"+resultSet1.getInt(2));
+            System.out.println("birthday:"+resultSet1.getTimestamp(3));
         }
     }
 }
