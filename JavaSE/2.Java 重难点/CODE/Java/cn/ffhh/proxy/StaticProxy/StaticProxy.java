@@ -6,9 +6,9 @@ package cn.ffhh.proxy.StaticProxy;
  * 静态代理例子
  */
 public class StaticProxy implements Person {
-    private Student student;
+    private Person student;
 
-    public StaticProxy(Student student) {
+    public StaticProxy(Person student) {
         this.student = student;
     }
 
