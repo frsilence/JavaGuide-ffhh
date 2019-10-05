@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>bookstore</display-name>
+  <filter>
+    <filter-name>checklogin</filter-name>
+    <filter-class>cn.ffhh.filter.LoginFilter</filter-class>
+    <init-param>
+      <param-name>excludedUrls</param-name>
+      <param-value>/userservlet</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>checklogin</filter-name>
+    <url-pattern>/cartservlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>checklogin</filter-name>
+    <url-pattern>/orderservlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>checklogin</filter-name>
+    <url-pattern>/admincategoryservlet</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>userservlet</servlet-name>
+    <servlet-class>cn.ffhh.bookstore.webservlet.UserServlet</servlet-class>
+    <!--服务器启动时就创建该servlet，需提供一个非负整数-->
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userservlet</servlet-name>
+    <url-pattern>/userservlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

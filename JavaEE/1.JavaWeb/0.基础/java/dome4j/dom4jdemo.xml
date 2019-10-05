@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<computer>
+    <cpu>
+        <model c="CN">cn</model>
+    </cpu>
+    <cpu>
+        <model c="SA">sa</model>
+    </cpu>
+    <gpu>
+        <model c="UN">yu</model>
+    </gpu>
+</computer>
